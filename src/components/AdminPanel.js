@@ -13,6 +13,7 @@ const AdminPanel = () => {
   const [bookForm, setBookForm] = useState({
     title: '',
     author: '',
+    authorBengali: '',
     publishedYear: '',
     quantity: '',
     isbn: '',
@@ -201,6 +202,7 @@ const AdminPanel = () => {
     setBookForm({
       title: '',
       author: '',
+      authorBengali: '',
       publishedYear: '',
       quantity: '',
       isbn: '',
@@ -215,6 +217,7 @@ const AdminPanel = () => {
       setBookForm({
         title: book.title || '',
         author: book.author || '',
+        authorBengali: book.authorBengali || '',
         publishedYear: book.publishedYear?.toString() || '',
         quantity: book.quantity?.toString() || '',
         isbn: book.isbn || '',
@@ -590,6 +593,20 @@ const AdminPanel = () => {
                     required
                     disabled={submitting}
                     placeholder="Enter author name"
+                  />
+                </Form.Group>
+              </Col>
+            </Row>
+            <Row>
+              <Col md={12}>
+                <Form.Group className="mb-3">
+                  <Form.Label>Author (Bengali)</Form.Label>
+                  <Form.Control
+                    type="text"
+                    value={bookForm.authorBengali}
+                    onChange={(e) => setBookForm({...bookForm, authorBengali: e.target.value})}
+                    disabled={submitting}
+                    placeholder="লেখকের নাম বাংলায় (ঐচ্ছিক)"
                   />
                 </Form.Group>
               </Col>
